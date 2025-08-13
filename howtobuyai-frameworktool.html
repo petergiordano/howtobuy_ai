@@ -3,280 +3,296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to Buy AI | Framework Tool</title>
+    <title>How to Buy AI | Interactive Copilot</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Work+Sans:wght@700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Outfit', sans-serif;
-            background-color: #f6f6f6;
-        }
-        h1, h2, h3 {
-            font-family: 'Work Sans', sans-serif;
-            font-weight: 700;
-        }
-        .gold-underline {
-            border-bottom: 3px solid #e5a819;
-            padding-bottom: 2px;
-        }
-        .btn-primary {
-            background-color: #e5a819;
-            color: #060119;
-            transition: background-color 0.3s ease;
-        }
-        .btn-primary:hover {
-            background-color: #efcb75;
-        }
-        .btn-secondary {
-            background-color: #224f41;
-            color: #ffffff;
-            transition: background-color 0.3s ease;
-        }
-        .btn-secondary:hover {
-            background-color: #528577;
-        }
-        .step-indicator {
-            background-color: #e5ecea;
-            color: #224f41;
-        }
-        .step-indicator.active {
-            background-color: #224f41;
-            color: #ffffff;
-        }
-        .form-input {
-            border-color: #cfe3ee;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-        .form-input:focus {
-            border-color: #0d71a9;
-            box-shadow: 0 0 0 2px #e2eef5;
-            outline: none;
-        }
+        body { font-family: 'Outfit', sans-serif; background-color: #f6f6f6; color: #060119; }
+        h1, h2, h3, h4 { font-family: 'Work Sans', sans-serif; font-weight: 700; }
+        .gold-underline { border-bottom: 3px solid #e5a819; padding-bottom: 2px; display: inline-block; }
+        .btn-primary { background-color: #e5a819; color: #060119; transition: background-color 0.3s ease; }
+        .btn-primary:hover { background-color: #efcb75; }
+        .btn-primary:disabled { background-color: #faeed1; color: #7da399; cursor: not-allowed; }
+        .btn-secondary { background-color: #224f41; color: #ffffff; transition: background-color 0.3s ease; }
+        .btn-secondary:hover { background-color: #528577; }
+        .form-input { border-color: #cfe3ee; transition: border-color 0.3s ease, box-shadow 0.3s ease; }
+        .form-input:focus { border-color: #0d71a9; box-shadow: 0 0 0 2px #e2eef5; outline: none; }
         .form-select {
-             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23528577' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23528577' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 1.5em 1.5em;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
         }
-        .fade-in {
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-in-out; }
+        .fade-in { animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .checkbox-custom { accent-color: #224f41; }
+        .learn-more { color: #0d71a9; cursor: pointer; font-size: 0.875rem; }
+        .learn-more-content { display: none; background-color: #e2eef5; border-left: 3px solid #0d71a9; }
     </style>
 </head>
 <body class="bg-[#f6f6f6] text-[#060119]">
 
     <div class="container mx-auto p-4 md:p-8 max-w-4xl">
         
-        <!-- Navigation -->
-        <nav class="mb-8">
-            <div class="flex flex-wrap gap-3 justify-center">
-                <a href="index.html" class="bg-[#e2eef5] text-[#0d71a9] px-4 py-2 rounded-lg font-medium hover:bg-[#cfe3ee] transition-colors">
-                    ← Back to home
-                </a>
-                <a href="howtobuyai-infographic.html" class="bg-[#e5ecea] text-[#224f41] px-4 py-2 rounded-lg font-medium hover:bg-[#7da399] hover:text-white transition-colors">
-                    View framework guide →
-                </a>
-            </div>
-        </nav>
-        
         <header class="text-center mb-8 md:mb-12">
             <h1 class="text-4xl md:text-5xl text-[#0d71a9] mb-2">How to buy AI</h1>
-            <p class="text-lg md:text-xl text-[#528577]">A step-by-step framework to build your business case.</p>
+            <p class="text-lg md:text-xl text-[#528577]">Your interactive copilot for building a smarter business case.</p>
         </header>
 
         <main class="bg-white rounded-lg shadow-lg p-6 md:p-10">
             
-            <div class="flex justify-center items-center space-x-2 md:space-x-4 mb-8">
-                <div id="indicator-1" class="step-indicator active w-8 h-8 rounded-full flex items-center justify-center font-bold">1</div>
-                <div class="flex-grow h-px bg-[#cfe3ee]"></div>
-                <div id="indicator-2" class="step-indicator w-8 h-8 rounded-full flex items-center justify-center font-bold">2</div>
-                <div class="flex-grow h-px bg-[#cfe3ee]"></div>
-                <div id="indicator-3" class="step-indicator w-8 h-8 rounded-full flex items-center justify-center font-bold">3</div>
-                <div class="flex-grow h-px bg-[#cfe3ee]"></div>
-                <div id="indicator-4" class="step-indicator w-8 h-8 rounded-full flex items-center justify-center font-bold">4</div>
-            </div>
+            <!-- Step 1: Problem Definition -->
+            <div id="step-1" class="mb-8 fade-in">
+                <div class="border-b border-gray-200 pb-6">
+                    <h2 class="text-2xl md:text-3xl text-[#224f41] mb-2">Phase 1: Define the Problem</h2>
+                    <p class="mb-6 text-[#528577]">A strong business case starts with a clearly defined problem. Before evaluating any AI, you must quantify the pain you're solving.</p>
+                    
+                    <label for="problemStatement" class="block text-lg font-medium text-[#224f41] mb-2">Problem Statement</label>
+                    <input type="text" id="problemStatement" class="form-input w-full p-3 border rounded-md mb-4" placeholder="e.g., Automate manual review of customer contracts" oninput="updateCanvas()">
+                    
+                    <label for="problemCost" class="block text-lg font-medium text-[#224f41] mb-2">Quantified Annual Cost</label>
+                    <input type="text" id="problemCost" class="form-input w-full p-3 border rounded-md mb-4" placeholder="e.g., $1,000,000" oninput="updateCanvas()">
 
-            <div id="step-1" class="fade-in">
-                <h2 class="text-2xl md:text-3xl text-[#224f41] mb-4">Step 1: Define Your Use Case</h2>
-                <p class="mb-6 text-[#528577]">Start by clearly stating the primary business problem you want to solve with AI. This will be the title of your framework.</p>
-                <label for="useCase" class="block text-sm font-medium text-[#224f41] mb-2">What is your primary AI use case?</label>
-                <input type="text" id="useCase" class="form-input w-full p-3 border rounded-md" placeholder="e.g., Automating Customer Support Tickets">
-                <div class="text-right mt-8">
-                    <button onclick="nextStep(2)" class="btn-primary font-bold py-3 px-6 rounded-md">Start Building</button>
-                </div>
-            </div>
+                    <label for="costDescription" class="block text-lg font-medium text-[#224f41] mb-2">Cost Calculation Method</label>
+                    <textarea id="costDescription" rows="3" class="form-input w-full p-3 border rounded-md" placeholder="e.g., Fully-loaded cost of 10 legal professionals + cost of delays in sales cycles." oninput="updateCanvas()"></textarea>
 
-            <div id="step-2" class="hidden fade-in">
-                <h2 class="text-2xl md:text-3xl text-[#224f41] mb-6">Step 2: Apply The Golden Rules</h2>
-                <div class="space-y-8">
-                    <div>
-                        <h3 class="text-xl font-bold mb-2"><span class="gold-underline">Rule 1: Define Your Problem in Dollars</span></h3>
-                        <p class="mb-4 text-[#528577]">Quantify the specific, measurable cost of this problem. This is the anchor for your entire ROI calculation.</p>
-                        <label for="problemCost" class="block text-sm font-medium text-[#224f41] mb-2">What is the estimated annual cost of this problem?</label>
-                        <input type="text" id="problemCost" class="form-input w-full p-3 border rounded-md" placeholder="e.g., $500,000">
-                        <label for="costDescription" class="block text-sm font-medium text-[#224f41] mt-4 mb-2">How is this cost calculated?</label>
-                        <textarea id="costDescription" rows="3" class="form-input w-full p-3 border rounded-md" placeholder="e.g., Based on the fully-loaded cost of 10 support agents who could be redeployed."></textarea>
+                    <div class="mt-6 bg-green-50 p-4 rounded-lg border border-green-200">
+                        <h4 class="font-bold text-[#224f41] mb-2">Self-Validation Checklist</h4>
+                        <p class="text-sm text-[#528577] mb-3">A deal is unlikely to happen unless all three are true. Is the problem...</p>
+                        <div class="space-y-2">
+                            <label class="flex items-center"><input type="checkbox" class="h-4 w-4 checkbox-custom mr-2"> <strong>Important?</strong> (Directly related to a top 3 company priority)</label>
+                            <label class="flex items-center"><input type="checkbox" class="h-4 w-4 checkbox-custom mr-2"> <strong>Urgent?</strong> (Needs to be solved in the next 1-2 quarters)</label>
+                            <label class="flex items-center"><input type="checkbox" class="h-4 w-4 checkbox-custom mr-2"> <strong>Valuable?</strong> (Impacts a well-known, tracked value driver)</label>
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="text-xl font-bold mb-2"><span class="gold-underline">Rule 2: Align the Price to Your Outcome</span></h3>
-                        <p class="mb-4 text-[#528577]">Ensure the vendor's pricing scales with the value you receive. Choose the model that best fits your problem.</p>
-                        <label for="pricingModel" class="block text-sm font-medium text-[#224f41] mb-2">What is the best pricing model for this problem?</label>
-                        <select id="pricingModel" class="form-input form-select w-full p-3 border rounded-md appearance-none">
-                            <option value="Per-User/Seat Model">Per-User/Seat Model (for improving team productivity)</option>
-                            <option value="Usage/Consumption Model">Usage/Consumption Model (for automating high-volume processes)</option>
-                            <option value="Outcome-Based Model">Outcome-Based Model (for achieving specific business results)</option>
-                        </select>
-                        <label for="desiredOutcome" class="block text-sm font-medium text-[#224f41] mt-4 mb-2">What is the primary outcome you want to measure?</label>
-                        <input type="text" id="desiredOutcome" class="form-input w-full p-3 border rounded-md" placeholder="e.g., Number of support tickets successfully resolved by AI.">
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold mb-2"><span class="gold-underline">Rule 3: Demand Guardrails to Control Costs</span></h3>
-                        <p class="mb-4 text-[#528577]">Implement contractual safeguards to provide budget predictability and prevent bill shock.</p>
-                        <label for="budgetGuardrails" class="block text-sm font-medium text-[#224f41] mb-2">What budget guardrails will you require?</label>
-                        <input type="text" id="budgetGuardrails" class="form-input w-full p-3 border rounded-md" placeholder="e.g., Monthly usage caps with automated alerts at 80% consumption.">
-                    </div>
-                </div>
-                <div class="flex justify-between mt-8">
-                    <button onclick="prevStep(1)" class="btn-secondary font-bold py-3 px-6 rounded-md">Back</button>
-                    <button onclick="nextStep(3)" class="btn-primary font-bold py-3 px-6 rounded-md">Next Step</button>
                 </div>
             </div>
 
-            <div id="step-3" class="hidden fade-in">
-                <h2 class="text-2xl md:text-3xl text-[#224f41] mb-4">Step 3: Build Your Vendor Scorecard</h2>
-                <p class="mb-6 text-[#528577]">Use this checklist during vendor evaluations. A good partner should meet these criteria. Select the characteristics you'll prioritize.</p>
-                <div id="scorecard" class="space-y-4">
-                </div>
-                 <div class="flex justify-between mt-8">
-                    <button onclick="prevStep(2)" class="btn-secondary font-bold py-3 px-6 rounded-md">Back</button>
-                    <button onclick="nextStep(4)" class="btn-primary font-bold py-3 px-6 rounded-md">Generate Framework</button>
+            <!-- Step 2: Pricing & Guardrails -->
+            <div id="step-2" class="mb-8 fade-in">
+                <div class="border-b border-gray-200 pb-6">
+                    <h2 class="text-2xl md:text-3xl text-[#224f41] mb-2">Phase 2: Align Price to Outcome</h2>
+                     <p class="mb-6 text-[#528577]">Match the vendor's pricing model to your problem type. This ensures you only pay more when you get more value.</p>
+                    
+                    <label for="pricingModel" class="block text-lg font-medium text-[#224f41] mb-2">What is your primary goal?</label>
+                    <select id="pricingModel" class="form-input form-select w-full p-3 border rounded-md mb-4" onchange="updateCanvas(); handlePricingModelChange();">
+                        <option value="">-- Select a Goal --</option>
+                        <option value="Per-User/Seat Model">Improving Team Productivity</option>
+                        <option value="Usage/Consumption Model">Automating a High-Volume Process</option>
+                        <option value="Outcome-Based Model">Achieving a Specific Business Result</option>
+                    </select>
+
+                    <div id="pricing-guidance" class="hidden"></div>
+                    
+                    <div class="mt-6">
+                        <label for="desiredOutcome" class="block text-lg font-medium text-[#224f41] mb-2">Primary Measured Outcome</label>
+                        <input type="text" id="desiredOutcome" class="form-input w-full p-3 border rounded-md mb-4" placeholder="e.g., Number of contracts reviewed with 99% accuracy." oninput="updateCanvas()">
+                    </div>
+
+                    <div id="guardrails-section" class="hidden mt-6">
+                        <label for="budgetGuardrails" class="block text-lg font-medium text-[#224f41] mb-2">Required Cost Guardrails</label>
+                         <p class="text-sm text-[#528577] mb-3">To prevent "bill shock," demand contractual safeguards. List your non-negotiables.</p>
+                        <textarea id="budgetGuardrails" rows="3" class="form-input w-full p-3 border rounded-md" placeholder="e.g., Hard monthly spending caps, automated alerts at 70% and 90% of quota, option for pre-paid credits." oninput="updateCanvas()"></textarea>
+                    </div>
                 </div>
             </div>
-            
-            <div id="step-4" class="hidden fade-in">
-                <h2 class="text-2xl md:text-3xl text-[#224f41] mb-4">Your AI Buying Framework</h2>
-                <p class="mb-6 text-[#528577]">Here is your generated framework. Use this as your internal guide and as a foundation for vendor conversations. Copy it to your clipboard or start over.</p>
+
+            <!-- Step 3: Vendor Evaluation -->
+            <div id="step-3" class="fade-in">
+                 <div class="border-b border-gray-200 pb-6">
+                    <h2 class="text-2xl md:text-3xl text-[#224f41] mb-2">Phase 3: Prepare for Vendor Evaluation</h2>
+                     <p class="mb-6 text-[#528577]">Use this scorecard to evaluate vendors. A good partner should meet these criteria. Prioritize what matters most to your organization.</p>
+                    
+                    <div id="scorecard" class="space-y-4 mb-8"></div>
+
+                    <div>
+                        <h3 class="text-xl font-bold mb-4"><span class="gold-underline">"Red Flag" Detector</span></h3>
+                        <p class="text-sm text-[#528577] mb-3">Watch out for these common mistakes during your evaluation.</p>
+                        <div class="space-y-2">
+                             <label class="flex items-center"><input type="checkbox" class="h-4 w-4 checkbox-custom mr-2"> Vendor demo uses their data, not yours.</label>
+                             <label class="flex items-center"><input type="checkbox" class="h-4 w-4 checkbox-custom mr-2"> Vendor asks vague questions about "efficiency" instead of specific, manual processes.</label>
+                             <label class="flex items-center"><input type="checkbox" class="h-4 w-4 checkbox-custom mr-2"> Vendor can't provide specifics on integration time-to-value for customers like you.</label>
+                             <label class="flex items-center"><input type="checkbox" class="h-4 w-4 checkbox-custom mr-2"> AI feature is only available in the most expensive, bundled package.</label>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+
+            <!-- Generated Canvas -->
+            <div id="canvas-section" class="mt-10 fade-in">
+                <h2 class="text-3xl text-[#0d71a9] mb-4">Your AI Buying Canvas</h2>
+                <p class="mb-6 text-[#528577]">This is your generated playbook. Use it as your internal guide and for vendor conversations. It updates in real-time as you fill out the fields above.</p>
                 
-                <div id="summary" class="bg-[#e5ecea] p-6 rounded-md border border-[#7da399]">
+                <div id="canvas" class="bg-[#e5ecea] p-6 rounded-md border border-[#7da399] min-h-[200px]">
+                    <!-- Canvas content will be generated here -->
                 </div>
 
                 <div class="flex justify-between mt-8">
                     <button onclick="window.location.reload()" class="btn-secondary font-bold py-3 px-6 rounded-md">Start Over</button>
-                    <button id="copyButton" onclick="copySummary()" class="btn-primary font-bold py-3 px-6 rounded-md flex items-center">
-                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                        Copy to Clipboard
+                    <button id="copyButton" onclick="copyCanvas()" class="btn-primary font-bold py-3 px-6 rounded-md flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        Copy Canvas to Clipboard
                     </button>
                 </div>
             </div>
 
         </main>
-        
-        <footer class="text-center mt-8">
-            <p class="text-sm text-[#7da399]">Powered by Scale Venture Partners</p>
-        </footer>
-
     </div>
 
     <script>
-        const formData = {
-            useCase: '',
-            problemCost: '',
-            costDescription: '',
-            pricingModel: 'Per-User/Seat Model',
-            desiredOutcome: '',
-            budgetGuardrails: '',
-            scorecard: []
-        };
-
         const scorecardItems = [
-            { id: 'aligned', text: 'Aligned with Value: Pricing metric maps to our business outcome.' },
-            { id: 'acceptable', text: 'Acceptable: The model is simple and intuitive for all stakeholders.' },
-            { id: 'consumable', text: 'Consumable: Fits how our organization budgets for technology.' },
-            { id: 'predictable', text: 'Predictable: The vendor provides tools to forecast costs.' },
-            { id: 'scalable', text: 'Scalable: Unit cost decreases as our usage grows.' },
-            { id: 'auditable', text: 'Auditable: Billable metrics can be clearly measured and verified.' },
-            { id: 'sustainable', text: 'Sustainable: Pricing is protected from underlying model cost volatility.' },
-            { id: 'differentiable', text: 'Differentiable: The pricing model is clearly better aligned than competitors.' }
+            { id: 'aligned', text: 'Aligned with Value', question: 'Key Question: Does the pricing metric map directly to the business outcome *we* care about (e.g., cost per resolution, per insight)?' },
+            { id: 'predictable', text: 'Predictable', question: 'Key Question: What tools (dashboards, alerts, calculators) do you provide to help us forecast and control costs, avoiding bill shock?' },
+            { id: 'scalable', text: 'Scalable', question: 'Key Question: As our usage grows 10x or 100x, how does the per-unit cost decrease? Can you show us the pricing tiers?' },
+            { id: 'auditable', text: 'Auditable', question: 'Key Question: How can we independently measure and verify the billable metrics to ensure there are no disputes?' },
+            { id: 'integration', text: 'Ready for Integration', question: 'Key Question: Show us your last three integration projects with customers who have a tech stack like ours. What were the exact steps, and what is the average time-to-value?' },
+            { id: 'change-ready', text: 'Ready for Org Change', question: 'Key Question: Show us your standard implementation plan. Which of our roles will be most impacted, and what training do you provide for them?' }
         ];
 
-        function showStep(stepNumber) {
-            for (let i = 1; i <= 4; i++) {
-                document.getElementById(`step-${i}`).classList.add('hidden');
-                document.getElementById(`indicator-${i}`).classList.remove('active');
-            }
-            document.getElementById(`step-${stepNumber}`).classList.remove('hidden');
-            document.getElementById(`indicator-${stepNumber}`).classList.add('active');
-        }
+        function handlePricingModelChange() {
+            const model = document.getElementById('pricingModel').value;
+            const guidanceContainer = document.getElementById('pricing-guidance');
+            const guardrailsSection = document.getElementById('guardrails-section');
+            let guidanceHTML = '';
 
-        function nextStep(stepNumber) {
-            saveStepData(stepNumber - 1);
-            if (stepNumber === 4) {
-                generateSummary();
+            if (model === "Per-User/Seat Model") {
+                guidanceHTML = `<div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                    <h4 class="font-bold text-[#0d71a9]">Expected Model: Per-User/Seat</h4>
+                    <p class="text-sm">This model is best for enabling individual users where value grows as more people use it. A key red flag is a pure per-seat model for a tool meant to *replace* human work.</p>
+                    <p class="text-sm mt-1"><strong>Your Key Question:</strong> "Is the per-seat cost demonstrably less than the productivity gain per person?"</p>
+                </div>`;
+                guardrailsSection.classList.add('hidden');
+            } else if (model === "Usage/Consumption Model") {
+                guidanceHTML = `<div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                    <h4 class="font-bold text-[#0d71a9]">Expected Model: Usage/Consumption</h4>
+                    <p class="text-sm">This model is for automating high-volume processes where value grows with operations completed. It's an honest model, but carries risk.</p>
+                    <p class="text-sm mt-1"><strong>Warning:</strong> Pure usage models without protection create a risk of "bill shock" from unexpected usage spikes. Demanding guardrails is non-negotiable.</p>
+                </div>`;
+                guardrailsSection.classList.remove('hidden');
+            } else if (model === "Outcome-Based Model") {
+                guidanceHTML = `<div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                    <h4 class="font-bold text-[#0d71a9]">Expected Model: Outcome-Based</h4>
+                    <p class="text-sm">This is the ideal model for value alignment, as you only pay for the result. However, it requires a high degree of trust and operational maturity.</p>
+                     <p class="text-sm mt-1"><strong>Your Key Question:</strong> "How do you precisely define and audit a 'successful outcome' to ensure we both agree on the metric?"</p>
+                </div>`;
+                guardrailsSection.classList.add('hidden');
             }
-            showStep(stepNumber);
-        }
-
-        function prevStep(stepNumber) {
-            showStep(stepNumber);
-        }
-        
-        function saveStepData(stepNumber) {
-            if (stepNumber === 1) {
-                formData.useCase = document.getElementById('useCase').value;
-            } else if (stepNumber === 2) {
-                formData.problemCost = document.getElementById('problemCost').value;
-                formData.costDescription = document.getElementById('costDescription').value;
-                formData.pricingModel = document.getElementById('pricingModel').value;
-                formData.desiredOutcome = document.getElementById('desiredOutcome').value;
-                formData.budgetGuardrails = document.getElementById('budgetGuardrails').value;
-            } else if (stepNumber === 3) {
-                formData.scorecard = [];
-                scorecardItems.forEach(item => {
-                    if (document.getElementById(`scorecard-${item.id}`).checked) {
-                        formData.scorecard.push(item.text);
-                    }
-                });
-            }
-        }
-
-        function generateSummary() {
-            const summaryContainer = document.getElementById('summary');
-            const useCaseTitle = formData.useCase || "Your Use Case";
             
-            summaryContainer.innerHTML = `
-                <h3 class="text-2xl font-bold text-[#0d71a9] mb-4" style="font-family: 'Work Sans', sans-serif;">How to Buy AI for: ${useCaseTitle}</h3>
+            guidanceContainer.innerHTML = guidanceHTML;
+            guidanceContainer.classList.toggle('hidden', !model);
+        }
+
+        function toggleLearnMore(id) {
+            const content = document.getElementById(`learn-more-${id}`);
+            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function initializeScorecard() {
+            const scorecardContainer = document.getElementById('scorecard');
+            scorecardContainer.innerHTML = scorecardItems.map(item => `
+                <div class="bg-[#e5ecea] p-3 rounded-md">
+                    <label class="flex items-center cursor-pointer">
+                        <input type="checkbox" id="scorecard-${item.id}" onchange="updateCanvas()" class="h-5 w-5 checkbox-custom">
+                        <span class="ml-3 font-bold text-[#224f41] flex-grow">${item.text}</span>
+                        <span class="learn-more" onclick="event.preventDefault(); toggleLearnMore('${item.id}')">Learn More</span>
+                    </label>
+                    <div id="learn-more-${item.id}" class="learn-more-content p-3 mt-2 rounded-md">
+                        <p class="text-sm text-[#060119]">${item.question}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function getCanvasData() {
+            const data = {};
+            data.problemStatement = document.getElementById('problemStatement').value || '[Not specified]';
+            data.problemCost = document.getElementById('problemCost').value || '[Not specified]';
+            data.costDescription = document.getElementById('costDescription').value || '[Not specified]';
+            
+            const pricingModelSelect = document.getElementById('pricingModel');
+            data.pricingModel = pricingModelSelect.options[pricingModelSelect.selectedIndex].text || '[Not specified]';
+            
+            data.desiredOutcome = document.getElementById('desiredOutcome').value || '[Not specified]';
+            data.budgetGuardrails = document.getElementById('budgetGuardrails').value;
+
+            data.scorecard = scorecardItems
+                .filter(item => document.getElementById(`scorecard-${item.id}`).checked)
+                .map(item => ({ text: item.text, question: item.question }));
+
+            return data;
+        }
+
+        function updateCanvas() {
+            const data = getCanvasData();
+            const canvasContainer = document.getElementById('canvas');
+            
+            let scorecardHTML = data.scorecard.length > 0
+                ? data.scorecard.map(item => `<li>${item.text}</li>`).join('')
+                : '<li>No priorities selected.</li>';
+
+            let guardrailsHTML = '';
+            if (document.getElementById('pricingModel').value === 'Usage/Consumption Model' && data.budgetGuardrails) {
+                guardrailsHTML = `<div>
+                    <h4 class="font-bold text-lg text-[#224f41] mb-2"><span class="gold-underline">3. Required Cost Guardrails</span></h4>
+                    <p>${data.budgetGuardrails}</p>
+                </div>`;
+            }
+
+            canvasContainer.innerHTML = `
+                <h3 class="text-2xl font-bold text-[#0d71a9] mb-4" style="font-family: 'Work Sans', sans-serif;">AI Buying Canvas: ${data.problemStatement}</h3>
                 <div class="space-y-6">
                     <div>
                         <h4 class="font-bold text-lg text-[#224f41] mb-2"><span class="gold-underline">1. The Problem in Dollars</span></h4>
-                        <p><strong>Annual Cost:</strong> ${formData.problemCost || 'Not specified'}</p>
-                        <p><strong>Calculation:</strong> ${formData.costDescription || 'Not specified'}</p>
+                        <p><strong>Annual Cost:</strong> ${data.problemCost}</p>
+                        <p><strong>Calculation:</strong> ${data.costDescription}</p>
                     </div>
                     <div>
                         <h4 class="font-bold text-lg text-[#224f41] mb-2"><span class="gold-underline">2. Price & Outcome Alignment</span></h4>
-                        <p><strong>Expected Pricing Model:</strong> ${formData.pricingModel || 'Not specified'}</p>
-                        <p><strong>Primary Measured Outcome:</strong> ${formData.desiredOutcome || 'Not specified'}</p>
+                        <p><strong>Primary Goal / Expected Model:</strong> ${data.pricingModel}</p>
+                        <p><strong>Primary Measured Outcome:</strong> ${data.desiredOutcome}</p>
                     </div>
+                    ${guardrailsHTML}
                     <div>
-                        <h4 class="font-bold text-lg text-[#224f41] mb-2"><span class="gold-underline">3. Required Cost Guardrails</span></h4>
-                        <p>${formData.budgetGuardrails || 'Not specified'}</p>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-lg text-[#224f41] mb-2"><span class="gold-underline">4. Vendor Scorecard Priorities</span></h4>
-                        <ul class="list-disc list-inside text-[#060119] space-y-1">
-                            ${formData.scorecard.length > 0 ? formData.scorecard.map(item => `<li>${item}</li>`).join('') : '<li>No priorities selected.</li>'}
-                        </ul>
+                        <h4 class="font-bold text-lg text-[#224f41] mb-2"><span class="gold-underline">4. Vendor Scorecard & Key Questions</span></h4>
+                        <ul class="list-disc list-inside text-[#060119] space-y-1">${scorecardHTML}</ul>
                     </div>
                 </div>
             `;
         }
-        
-        function copySummary() {
-            const summaryContainer = document.getElementById('summary');
-            const textToCopy = summaryContainer.innerText;
+
+        function copyCanvas() {
+            const data = getCanvasData();
             const copyButton = document.getElementById('copyButton');
+            
+            const guardrailsText = (document.getElementById('pricingModel').value === 'Usage/Consumption Model' && data.budgetGuardrails)
+                ? `### 3. Required Cost Guardrails\\n- ${data.budgetGuardrails}\\n\\n`
+                : '';
+            
+            const scorecardText = data.scorecard.length > 0
+                ? data.scorecard.map(item => `- **${item.text}:** ${item.question}`).join('\\n')
+                : '- No priorities selected.';
+
+            const textToCopy = `
+# AI Buying Canvas: ${data.problemStatement}
+
+### 1. The Problem in Dollars
+- **Annual Cost:** ${data.problemCost}
+- **Calculation:** ${data.costDescription}
+
+### 2. Price & Outcome Alignment
+- **Primary Goal / Expected Model:** ${data.pricingModel}
+- **Primary Measured Outcome:** ${data.desiredOutcome}
+
+${guardrailsText}
+### 4. Vendor Scorecard & Key Questions
+${scorecardText}
+            `.trim();
             
             const tempTextArea = document.createElement('textarea');
             tempTextArea.value = textToCopy;
@@ -285,9 +301,9 @@
             
             try {
                 document.execCommand('copy');
-                copyButton.innerHTML = `<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Copied!`;
+                copyButton.innerHTML = `<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Copied!`;
                 setTimeout(() => {
-                     copyButton.innerHTML = `<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>Copy to Clipboard`;
+                     copyButton.innerHTML = `<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>Copy Canvas to Clipboard`;
                 }, 2000);
             } catch (err) {
                 console.error('Failed to copy text: ', err);
@@ -295,24 +311,10 @@
             
             document.body.removeChild(tempTextArea);
         }
-
-        function initializeScorecard() {
-            const scorecardContainer = document.getElementById('scorecard');
-            let html = '';
-            scorecardItems.forEach(item => {
-                html += `
-                    <label for="scorecard-${item.id}" class="flex items-center p-3 bg-[#e5ecea] rounded-md border border-transparent hover:border-[#7da399] transition-all duration-200 cursor-pointer">
-                        <input type="checkbox" id="scorecard-${item.id}" class="h-5 w-5 rounded text-[#224f41] focus:ring-[#528577]">
-                        <span class="ml-3 text-[#060119]">${item.text}</span>
-                    </label>
-                `;
-            });
-            scorecardContainer.innerHTML = html;
-        }
         
         window.onload = () => {
-            showStep(1);
             initializeScorecard();
+            updateCanvas();
         };
 
     </script>
