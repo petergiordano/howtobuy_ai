@@ -3,26 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to Buy AI - A Buyer's Framework</title>
+    <title>How to Buy AI - An Interactive Framework</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Work+Sans:wght@700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Outfit', sans-serif;
-            background-color: #f6f6f6;
-            color: #060119;
-        }
-        h1, h2, h3, .font-headline {
-            font-family: 'Work Sans', sans-serif;
-            font-weight: 700;
-        }
-        .gold-underline {
-            border-bottom: 3px solid #e5a819;
-            padding-bottom: 4px;
-            display: inline-block;
-        }
+        body { font-family: 'Outfit', sans-serif; background-color: #f6f6f6; color: #060119; }
+        h1, h2, h3, .font-headline { font-family: 'Work Sans', sans-serif; font-weight: 700; }
         .scale-blue { color: #0d71a9; }
         .scale-green { color: #224f41; }
         .scale-gold { color: #e5a819; }
@@ -30,30 +18,26 @@
         .bg-scale-light-blue { background-color: #e2eef5; }
         .border-scale-green { border-color: #224f41; }
         .border-scale-blue { border-color: #cfe3ee; }
+        .gold-underline { border-bottom: 3px solid #e5a819; padding-bottom: 4px; display: inline-block; }
 
-        /* Flowchart styles */
-        .flow-line {
-            position: absolute;
-            background-color: #cfe3ee;
-            z-index: 0;
-        }
-        .flow-line-h {
-            height: 3px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        .flow-line-v {
-            width: 3px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
+        /* Interactive Styles */
+        .accordion-header { cursor: pointer; transition: background-color 0.3s ease; }
+        .accordion-header:hover { background-color: #eef3f2; }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-in-out; }
+        .accordion-content.open { max-height: 500px; /* Adjust as needed */ }
+        .arrow-icon { transition: transform 0.3s ease; }
+        .open .arrow-icon { transform: rotate(180deg); }
+        .card-flip { perspective: 1000px; }
+        .card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; }
+        .card-flip.flipped .card-inner { transform: rotateY(180deg); }
+        .card-front, .card-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; }
+        .card-back { transform: rotateY(180deg); }
     </style>
 </head>
 <body class="bg-white">
 
     <div class="max-w-5xl mx-auto p-8 md:p-12">
 
-        <!-- Navigation -->
         <nav class="mb-8">
             <div class="flex flex-wrap gap-3 justify-center">
                 <a href="index.html" class="bg-[#e2eef5] text-[#0d71a9] px-4 py-2 rounded-lg font-medium hover:bg-[#cfe3ee] transition-colors">
@@ -65,39 +49,74 @@
             </div>
         </nav>
 
-        <!-- Header -->
         <header class="text-center mb-12 md:mb-16">
             <h1 class="text-4xl md:text-5xl scale-blue mb-2">How to buy AI</h1>
-            <p class="text-lg md:text-xl text-[#528577]">A buyer's framework for making smarter decisions</p>
+            <p class="text-lg md:text-xl text-[#528577]">An interactive buyer's framework for making smarter decisions</p>
         </header>
 
         <!-- Golden Rules Section -->
         <section class="mb-12 md:mb-20">
             <h2 class="text-3xl md:text-4xl text-center scale-green mb-10">The three golden rules of AI buying</h2>
-            <div class="grid md:grid-cols-3 gap-8 text-center">
+            <div class="space-y-4">
                 <!-- Rule 1 -->
-                <div class="bg-scale-light-green p-6 rounded-lg">
-                    <div class="mx-auto bg-[#7da399] h-16 w-16 rounded-full flex items-center justify-center mb-4">
-                        <span class="font-headline text-3xl text-white">1</span>
+                <div class="bg-scale-light-green rounded-lg">
+                    <div class="accordion-header p-6 flex justify-between items-center" onclick="toggleAccordion(this)">
+                        <div class="flex items-center">
+                            <div class="bg-[#7da399] h-12 w-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <span class="font-headline text-2xl text-white">1</span>
+                            </div>
+                            <div>
+                                <h3 class="font-headline text-xl scale-green">Define your problem in dollars</h3>
+                            </div>
+                        </div>
+                        <svg class="arrow-icon w-6 h-6 text-scale-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
-                    <h3 class="font-headline text-xl scale-green mb-2">Define your problem in dollars</h3>
-                    <p class="text-sm text-[#060119]">Align your evaluation to a specific, measurable business problem, not a vague symptom. Quantify the cost to anchor your ROI calculation.</p>
+                    <div class="accordion-content">
+                        <div class="p-6 pt-0 text-sm text-[#060119]">
+                            <p class="mb-2"><strong>The "Why":</strong> Don't start with the AI; start with the P&L. Anchor your evaluation to a specific, measurable business problem, not a vague symptom like "improving efficiency." This gives you a powerful basis for negotiating price.</p>
+                            <p><strong>How to Do It:</strong> Find a known, quantified pain. Ask diagnostic questions like, "What specific manual process are we trying to automate?" or "If this AI works perfectly, what specific cost disappears from the P&L?"</p>
+                        </div>
+                    </div>
                 </div>
                 <!-- Rule 2 -->
-                <div class="bg-scale-light-green p-6 rounded-lg">
-                    <div class="mx-auto bg-[#7da399] h-16 w-16 rounded-full flex items-center justify-center mb-4">
-                        <span class="font-headline text-3xl text-white">2</span>
+                <div class="bg-scale-light-green rounded-lg">
+                    <div class="accordion-header p-6 flex justify-between items-center" onclick="toggleAccordion(this)">
+                        <div class="flex items-center">
+                            <div class="bg-[#7da399] h-12 w-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <span class="font-headline text-2xl text-white">2</span>
+                            </div>
+                            <div>
+                                <h3 class="font-headline text-xl scale-green">Align the price to your outcome</h3>
+                            </div>
+                        </div>
+                         <svg class="arrow-icon w-6 h-6 text-scale-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
-                    <h3 class="font-headline text-xl scale-green mb-2">Align the price to your outcome</h3>
-                    <p class="text-sm text-[#060119]">Ensure the vendor's pricing metric scales directly with the value you receive. You should only pay more when your business demonstrably wins more.</p>
+                    <div class="accordion-content">
+                        <div class="p-6 pt-0 text-sm text-[#060119]">
+                            <p class="mb-2"><strong>The "Why":</strong> A fair model is one where the vendor only makes more money when your business gets more value. You should only pay more when your business demonstrably wins more.</p>
+                            <p><strong>Red Flag:</strong> Watch for pricing that charges for "activity" instead of "outcomes" (e.g., paying per API call regardless of success). This incentivizes vendor activity, not your results.</p>
+                        </div>
+                    </div>
                 </div>
                 <!-- Rule 3 -->
-                <div class="bg-scale-light-green p-6 rounded-lg">
-                    <div class="mx-auto bg-[#7da399] h-16 w-16 rounded-full flex items-center justify-center mb-4">
-                        <span class="font-headline text-3xl text-white">3</span>
+                <div class="bg-scale-light-green rounded-lg">
+                    <div class="accordion-header p-6 flex justify-between items-center" onclick="toggleAccordion(this)">
+                        <div class="flex items-center">
+                            <div class="bg-[#7da399] h-12 w-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <span class="font-headline text-2xl text-white">3</span>
+                            </div>
+                            <div>
+                                <h3 class="font-headline text-xl scale-green">Demand guardrails to control costs</h3>
+                            </div>
+                        </div>
+                         <svg class="arrow-icon w-6 h-6 text-scale-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
-                    <h3 class="font-headline text-xl scale-green mb-2">Demand guardrails to control costs</h3>
-                    <p class="text-sm text-[#060119]">Implement contractual safeguards like usage caps and alerts. This provides budget predictability and prevents bill shock.</p>
+                    <div class="accordion-content">
+                        <div class="p-6 pt-0 text-sm text-[#060119]">
+                            <p class="mb-2"><strong>The "Why":</strong> Pure usage-based models without protection expose you to "bill shock." A few power users or an unexpected spike in demand can blow up your entire budget. You must de-risk the financial commitment.</p>
+                            <p><strong>What to Demand:</strong> Make these non-negotiable in your contract: hard spending caps (monthly/quarterly), automated usage alerts (e.g., at 70% and 90% of quota), and the option for pre-paid credits.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -105,54 +124,49 @@
         <!-- AI Buying Decision Tree Section -->
         <section class="mb-12 md:mb-20">
             <h2 class="text-3xl md:text-4xl text-center scale-green mb-12">AI buying decision tree</h2>
-            <div class="relative">
-                <!-- Central Question -->
-                <div class="flex justify-center mb-12">
-                    <div class="bg-scale-light-blue p-6 rounded-lg border-2 border-scale-blue shadow-lg text-center max-w-md z-10 relative">
-                        <p class="text-sm scale-blue mb-2">START HERE</p>
-                        <h3 class="font-headline text-xl">What business problem are you trying to solve?</h3>
-                    </div>
-                </div>
-
-                <!-- Flow Lines -->
-                <div class="hidden md:block">
-                    <div class="flow-line flow-line-v" style="height: 48px; top: 120px;"></div>
-                    <div class="flow-line flow-line-h" style="width: 66.66%; left: 16.66%; top: 168px;"></div>
-                    <div class="flow-line flow-line-v" style="height: 40px; top: 168px; left: 16.66%;"></div>
-                    <div class="flow-line flow-line-v" style="height: 40px; top: 168px; left: 50%;"></div>
-                    <div class="flow-line flow-line-v" style="height: 40px; top: 168px; right: 16.66%; left: auto;"></div>
-                </div>
-
-                <!-- Three Branches -->
-                <div class="grid md:grid-cols-3 gap-8 relative z-10">
-                    <!-- Branch 1: Productivity -->
-                    <div class="bg-white p-6 rounded-lg border border-scale-blue">
-                        <h4 class="font-headline text-lg scale-blue mb-3">Improving Team Productivity</h4>
-                        <p class="text-xs text-[#528577] mb-4">e.g., better collaboration, faster content creation, augmenting individual skills</p>
-                        <div class="text-sm space-y-3">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Branch 1: Productivity -->
+                <div class="bg-white p-6 rounded-lg border border-scale-blue text-center h-64 flex flex-col justify-center items-center card-flip" onclick="this.classList.toggle('flipped')">
+                    <div class="card-inner">
+                        <div class="card-front flex flex-col justify-center items-center">
+                            <h4 class="font-headline text-lg scale-blue mb-3">Improving Team Productivity</h4>
+                            <p class="text-xs text-[#528577] mb-4">e.g., better collaboration, faster content creation, augmenting individual skills</p>
+                            <span class="text-xs scale-blue font-bold">(Click to learn more)</span>
+                        </div>
+                        <div class="card-back bg-scale-light-blue p-4 rounded-lg flex flex-col justify-center text-sm">
                             <p><strong class="scale-green">AI Value:</strong> Enabling individual users. Value grows as more people use it.</p>
-                            <p><strong class="scale-green">Expect:</strong> A Per-User/Seat Model.</p>
-                            <p><strong class="scale-green">Key Question:</strong> "Is the per-seat cost less than the productivity gain per person?"</p>
+                            <p class="mt-2"><strong class="scale-green">Expect:</strong> A Per-User/Seat Model.</p>
+                            <p class="mt-2"><strong class="scale-green">Key Question:</strong> "Is the per-seat cost less than the productivity gain per person?"</p>
                         </div>
                     </div>
-                    <!-- Branch 2: Automation -->
-                    <div class="bg-white p-6 rounded-lg border border-scale-blue">
-                        <h4 class="font-headline text-lg scale-blue mb-3">Automating a High-Volume Process</h4>
-                        <p class="text-xs text-[#528577] mb-4">e.g., processing documents, analyzing data feeds, handling routine tasks</p>
-                         <div class="text-sm space-y-3">
+                </div>
+                <!-- Branch 2: Automation -->
+                 <div class="bg-white p-6 rounded-lg border border-scale-blue text-center h-64 flex flex-col justify-center items-center card-flip" onclick="this.classList.toggle('flipped')">
+                    <div class="card-inner">
+                        <div class="card-front flex flex-col justify-center items-center">
+                            <h4 class="font-headline text-lg scale-blue mb-3">Automating a High-Volume Process</h4>
+                            <p class="text-xs text-[#528577] mb-4">e.g., processing documents, analyzing data feeds, handling routine tasks</p>
+                            <span class="text-xs scale-blue font-bold">(Click to learn more)</span>
+                        </div>
+                        <div class="card-back bg-scale-light-blue p-4 rounded-lg flex flex-col justify-center text-sm">
                             <p><strong class="scale-green">AI Value:</strong> Processing volume or throughput. Value grows with more operations completed.</p>
-                            <p><strong class="scale-green">Expect:</strong> A Usage/Consumption Model.</p>
-                            <p><strong class="scale-green">Key Question:</strong> "What is the unit cost per operation, and how does it decrease at scale?"</p>
+                            <p class="mt-2"><strong class="scale-green">Expect:</strong> A Usage/Consumption Model.</p>
+                            <p class="mt-2"><strong class="scale-green">Key Question:</strong> "What is the unit cost per operation, and how does it decrease at scale?"</p>
                         </div>
                     </div>
-                    <!-- Branch 3: Results -->
-                    <div class="bg-white p-6 rounded-lg border border-scale-blue">
-                        <h4 class="font-headline text-lg scale-blue mb-3">Achieving a Specific Business Result</h4>
-                        <p class="text-xs text-[#528577] mb-4">e.g., reducing customer churn, increasing sales conversions, resolving support tickets</p>
-                         <div class="text-sm space-y-3">
+                </div>
+                <!-- Branch 3: Results -->
+                 <div class="bg-white p-6 rounded-lg border border-scale-blue text-center h-64 flex flex-col justify-center items-center card-flip" onclick="this.classList.toggle('flipped')">
+                    <div class="card-inner">
+                        <div class="card-front flex flex-col justify-center items-center">
+                            <h4 class="font-headline text-lg scale-blue mb-3">Achieving a Specific Business Result</h4>
+                            <p class="text-xs text-[#528577] mb-4">e.g., reducing customer churn, increasing sales conversions, resolving support tickets</p>
+                            <span class="text-xs scale-blue font-bold">(Click to learn more)</span>
+                        </div>
+                        <div class="card-back bg-scale-light-blue p-4 rounded-lg flex flex-col justify-center text-sm">
                             <p><strong class="scale-green">AI Value:</strong> Delivering specific, measurable outcomes. Value is tied to results.</p>
-                            <p><strong class="scale-green">Expect:</strong> An Outcome-Based Model.</p>
-                            <p><strong class="scale-green">Key Question:</strong> "How do you define a successful outcome, and how do we audit it?"</p>
+                            <p class="mt-2"><strong class="scale-green">Expect:</strong> An Outcome-Based Model.</p>
+                            <p class="mt-2"><strong class="scale-green">Key Question:</strong> "How do you define a successful outcome, and how do we audit it?"</p>
                         </div>
                     </div>
                 </div>
@@ -162,42 +176,78 @@
         <!-- Vendor Scorecard Section -->
         <section>
             <h2 class="text-3xl md:text-4xl text-center scale-green mb-10">Vendor scorecard checklist</h2>
-            <div class="max-w-3xl mx-auto bg-scale-light-blue p-8 rounded-lg">
-                <div class="grid md:grid-cols-2 gap-x-8 gap-y-4">
-                    <div class="flex items-start">
-                        <span class="scale-gold text-2xl mr-3">&#10003;</span>
-                        <p><strong class="gold-underline">Aligned with Value:</strong> Pricing maps to the business outcome *we* care about.</p>
+            <div class="max-w-3xl mx-auto space-y-3">
+                <div class="bg-scale-light-blue rounded-lg">
+                    <div class="accordion-header p-4 flex justify-between items-center" onclick="toggleAccordion(this)">
+                        <p class="font-bold"><span class="scale-gold text-2xl mr-2">&#10003;</span>Aligned with Value</p>
+                        <svg class="arrow-icon w-5 h-5 text-scale-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
-                    <div class="flex items-start">
-                        <span class="scale-gold text-2xl mr-3">&#10003;</span>
-                        <p><strong class="gold-underline">Predictable:</strong> Vendor provides tools or a model to forecast our costs.</p>
+                    <div class="accordion-content"><div class="px-4 pb-4 text-sm"><strong>Your Key Question:</strong> "Does the pricing metric map directly to the business outcome *we* care about?"</div></div>
+                </div>
+                <div class="bg-scale-light-blue rounded-lg">
+                    <div class="accordion-header p-4 flex justify-between items-center" onclick="toggleAccordion(this)">
+                        <p class="font-bold"><span class="scale-gold text-2xl mr-2">&#10003;</span>Predictable</p>
+                        <svg class="arrow-icon w-5 h-5 text-scale-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
-                    <div class="flex items-start">
-                        <span class="scale-gold text-2xl mr-3">&#10003;</span>
-                        <p><strong class="gold-underline">Acceptable:</strong> The model is simple and intuitive for all stakeholders to understand.</p>
+                    <div class="accordion-content"><div class="px-4 pb-4 text-sm"><strong>Your Key Question:</strong> "What tools do you provide to help us forecast and control costs, avoiding bill shock?"</div></div>
+                </div>
+                 <div class="bg-scale-light-blue rounded-lg">
+                    <div class="accordion-header p-4 flex justify-between items-center" onclick="toggleAccordion(this)">
+                        <p class="font-bold"><span class="scale-gold text-2xl mr-2">&#10003;</span>Scalable</p>
+                        <svg class="arrow-icon w-5 h-5 text-scale-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
-                     <div class="flex items-start">
-                        <span class="scale-gold text-2xl mr-3">&#10003;</span>
-                        <p><strong class="gold-underline">Scalable:</strong> The unit price decreases as our usage grows 10x or 100x.</p>
+                    <div class="accordion-content"><div class="px-4 pb-4 text-sm"><strong>Your Key Question:</strong> "As our usage grows 10x, how does the per-unit cost decrease? Show us the pricing tiers."</div></div>
+                </div>
+                 <div class="bg-scale-light-blue rounded-lg">
+                    <div class="accordion-header p-4 flex justify-between items-center" onclick="toggleAccordion(this)">
+                        <p class="font-bold"><span class="scale-gold text-2xl mr-2">&#10003;</span>Auditable</p>
+                        <svg class="arrow-icon w-5 h-5 text-scale-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
-                    <div class="flex items-start">
-                        <span class="scale-gold text-2xl mr-3">&#10003;</span>
-                        <p><strong class="gold-underline">Consumable:</strong> The model fits how our organization budgets for and purchases technology.</p>
+                    <div class="accordion-content"><div class="px-4 pb-4 text-sm"><strong>Your Key Question:</strong> "How can we independently measure and verify the billable metrics to avoid disputes?"</div></div>
+                </div>
+                <div class="bg-scale-light-blue rounded-lg">
+                    <div class="accordion-header p-4 flex justify-between items-center" onclick="toggleAccordion(this)">
+                        <p class="font-bold"><span class="scale-gold text-2xl mr-2">&#10003;</span>Acceptable</p>
+                        <svg class="arrow-icon w-5 h-5 text-scale-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
-                    <div class="flex items-start">
-                        <span class="scale-gold text-2xl mr-3">&#10003;</span>
-                        <p><strong class="gold-underline">Auditable:</strong> Billable metrics can be clearly measured and verified to avoid disputes.</p>
+                    <div class="accordion-content"><div class="px-4 pb-4 text-sm"><strong>Your Key Question:</strong> "Is the model simple enough for all stakeholders (Finance, Legal) to understand?"</div></div>
+                </div>
+                <div class="bg-scale-light-blue rounded-lg">
+                    <div class="accordion-header p-4 flex justify-between items-center" onclick="toggleAccordion(this)">
+                        <p class="font-bold"><span class="scale-gold text-2xl mr-2">&#10003;</span>Consumable</p>
+                        <svg class="arrow-icon w-5 h-5 text-scale-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
+                    <div class="accordion-content"><div class="px-4 pb-4 text-sm"><strong>Your Key Question:</strong> "Does this model fit how our organization budgets for and purchases technology?"</div></div>
+                </div>
+                <div class="bg-scale-light-blue rounded-lg">
+                    <div class="accordion-header p-4 flex justify-between items-center" onclick="toggleAccordion(this)">
+                        <p class="font-bold"><span class="scale-gold text-2xl mr-2">&#10003;</span>Sustainable</p>
+                        <svg class="arrow-icon w-5 h-5 text-scale-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="accordion-content"><div class="px-4 pb-4 text-sm"><strong>Your Key Question:</strong> "Is pricing protected from underlying AI model cost volatility?"</div></div>
+                </div>
+                <div class="bg-scale-light-blue rounded-lg">
+                    <div class="accordion-header p-4 flex justify-between items-center" onclick="toggleAccordion(this)">
+                        <p class="font-bold"><span class="scale-gold text-2xl mr-2">&#10003;</span>Differentiable</p>
+                        <svg class="arrow-icon w-5 h-5 text-scale-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="accordion-content"><div class="px-4 pb-4 text-sm"><strong>Your Key Question:</strong> "How is your pricing model clearly better aligned with our success than competitors' models?"</div></div>
                 </div>
             </div>
         </section>
 
-        <!-- Footer -->
         <footer class="text-center mt-16 pt-8 border-t border-gray-200">
             <p class="text-sm text-[#7da399]">Powered by Scale Venture Partners</p>
         </footer>
 
     </div>
 
+    <script>
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            header.parentElement.classList.toggle('open');
+            content.classList.toggle('open');
+        }
+    </script>
 </body>
 </html>
